@@ -11,7 +11,7 @@ const frameMetadata = getFrameMetadata({
     src: `${process.env.NEXT_PUBLIC_SITE_URL}/site-preview.jpg`,
   },
   input: {
-    text: 'Your Email',
+    text: 'Your Answer',
   },
   postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
 })
