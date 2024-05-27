@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Sign Up!',
+      label: 'Submit Answer',
     },
   ],
   image: {
