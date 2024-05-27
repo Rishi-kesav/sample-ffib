@@ -6,13 +6,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const { untrustedData } = body
 
-  const isValidEmail = untrustedData.inputText.match(
-    /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+  const isValidAnswer = untrustedData.inputText.match(
+    /^[a-zA-Z]/
   )
 
-  if (!untrustedData.inputText || !isValidEmail) {
+  if (!untrustedData.inputText || !isValidAnswer) {
     const searchParams = new URLSearchParams({
-      title: 'Valid Email Required',
+      title: 'Valid Answer Required',
     })
 
     return new NextResponse(
@@ -26,7 +26,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
           src: `${process.env.NEXT_PUBLIC_SITE_URL}/og?${searchParams}`,
         },
         input: {
-          text: 'Your Email',
+          text: 'Your Answer',
         },
         postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/advanced`,
       })
@@ -34,7 +34,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   }
 
   const searchParams = new URLSearchParams({
-    title: 'Signup Successful',
+    title: 'Correct Answer',
     description: untrustedData.inputText,
   })
 
